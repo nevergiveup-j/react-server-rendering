@@ -5,12 +5,17 @@ import React from 'react'
 import { match, RouterContext } from 'react-router'
 import { renderToString } from 'react-dom/server'
 
-const src = path.resolve('src')
 import routes from '../src/routes'
+import webpackConfig from '../build/webpack.base.config'
 
+const webpack = require('webpack')
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const webpackHotMiddleware = require('webpack-hot-middleware')
 
 const app = express()
+const compiler = webpack(webpackConfig)
 const PORT = process.env.PORT || 9000
+const src = path.resolve('src')
 
 const renderPage = (html, preloadedState = {}) => {
   return `
@@ -34,9 +39,23 @@ const renderPage = (html, preloadedState = {}) => {
   `
 }
 
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: webpackConfig.output.publicPath,
+  lazy: false,
+  noInfo: true,
+  quiet: false,
+  hot: true,
+  stats: {
+    chunks: false,
+    chunkModules: false,
+    colors: true,
+  }
+}))
+
+app.use(webpackHotMiddleware(compiler));
+
 app.use((req, res) => {
     match({routes, location: req.url}, (err, redirectLocation, renderProps) => {
-        console.log(renderProps)
         if(err) {
             res.status(500).end(`Internal Server Error ${err}`);
         } else if (redirectLocation) {
