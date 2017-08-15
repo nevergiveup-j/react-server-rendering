@@ -18,8 +18,7 @@
   config.devtool = 'eval-source-map';
 
   config.plugins.push(
-  //   new webpack.HotModuleReplacementPlugin(),
-    // new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('[name].css'),
     new BrowserSyncPlugin(
       {
         host: '127.0.0.1',

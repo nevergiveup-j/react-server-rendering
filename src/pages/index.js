@@ -10,7 +10,7 @@ export default class Index extends Component {
   render() {
     return (
       <div>
-        home content22
+        home content222
       </div>
     );
   }
