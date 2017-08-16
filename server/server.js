@@ -2,7 +2,8 @@ import express from 'express'
 import path from 'path'
 
 import React from 'react'
-import { renderServer } from '../dist/server'
+// import { renderServer } from '../dist/server'
+import { renderServer } from './pageRender'
 
 const app = express()
 const PORT = process.env.PORT || 9000

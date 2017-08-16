@@ -6,8 +6,9 @@
   "scripts": {
     "start": "npm run build && NODE_ENV=production node ./server/server.babel.js",
     "dev": "NODE_ENV=development node ./server/client.babel.js",
-    "build": "rimraf dist && NODE_ENV=production webpack --colors --config ./build/webpack.server.config.js",
-    "build:client": "rimraf dist && NODE_ENV=production webpack --colors --config ./build/webpack.dev.config.js"
+    "build": "rimraf dist && npm run build:server && npm run build:client",
+    "build:server": "NODE_ENV=production webpack --colors --config ./build/webpack.server.config.js",
+    "build:client": "NODE_ENV=production webpack --colors --config ./build/webpack.dev.config.js"
   },
   "repository": {
     "type": "git",

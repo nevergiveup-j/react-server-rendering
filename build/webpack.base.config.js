@@ -7,7 +7,7 @@ var srcPaths = path.resolve('.', 'src');
 
 var config = {
   entry: {
-    app: srcPaths + '/client'
+    client: srcPaths + '/client'
   },
   output: {
     path: rootPaths + '/dist',
