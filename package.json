@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && NODE_ENV=production node ./server/server.babel.js",
-    "dev": "NODE_ENV=development node ./server/client.babel.js",
-    "build": "rimraf dist && npm run build:server && npm run build:client",
+    "test1": "NODE_ENV=development node ./server/client.babel.js",
+    "dev": "npm run build:server && NODE_ENV=development node ./server/server.babel.js",
+    "dev1": "NODE_ENV=development node ./server/client.babel.js",
+    "build": "rimraf dist && npm run build:server && npm run buiclientld:",
     "build:server": "NODE_ENV=production webpack --colors --config ./build/webpack.server.config.js",
     "build:client": "NODE_ENV=production webpack --colors --config ./build/webpack.dev.config.js"
   },
@@ -49,6 +51,10 @@
     "express": "^4.15.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-router": "^3.0.5"
+    "react-redux": "^5.0.6",
+    "react-router": "^3.0.5",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   }
 }

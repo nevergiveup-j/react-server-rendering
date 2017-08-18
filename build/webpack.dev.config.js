@@ -19,18 +19,6 @@
 
   config.plugins.push(
     new ExtractTextPlugin('[name].css')
-    // new BrowserSyncPlugin(
-    //   {
-    //     host: '127.0.0.1',
-    //     port: 9000,
-    //     proxy: 'http://127.0.0.1:9001/',
-    //     logConnections: false,
-    //     notify: false
-    //   },
-    //   {
-    //     reload: true
-    //   }
-    // ),
     // new HtmlWebpackPlugin({
     //   filename: 'index.html',
     //   template: srcPaths + '/views/index.html',

@@ -15,19 +15,19 @@ var config = {
     filename: '[name].js',
     chunkFilename: '[name].chunk.js'
   },
-  // resolve: {
-  //   // 后缀名
-  //   extensions: ['.js', '.jsx', '.scss'],
-  //   // 别名
-  //   alias: {
-  //     'layouts': srcPaths + '/layouts',
-  //     'utils': srcPaths + '/utils',
-  //     'config': srcPaths + '/config',
-  //     'pages': srcPaths + '/pages',
-  //     'component': srcPaths + '/component',
-  //     'static': srcPaths + '/static'
-  //   }
-  // },
+  resolve: {
+    // 后缀名
+    extensions: ['.js', '.jsx', '.scss'],
+    // 别名
+    alias: {
+      'layouts': srcPaths + '/layouts',
+      'utils': srcPaths + '/utils',
+      'config': srcPaths + '/config',
+      'pages': srcPaths + '/pages',
+      'component': srcPaths + '/component',
+      'static': srcPaths + '/static'
+    }
+  },
   module: {
     rules: [
       {

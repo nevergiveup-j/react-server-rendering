@@ -1,16 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
+
+import { getUserInfo, addUserInfo } from '../redux/actions/users'
 
 // import '../static/sass/common.scss'
 
-export default class Layout extends Component {
+class Layout extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
     }
   }
+  componentWillMount() {
+    const { getUserInfo } = this.props
+
+    getUserInfo()
+  }
   render() {
+    console.log(this.props)
     return (
       <div>
         <ul>
@@ -26,3 +35,11 @@ export default class Layout extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ user }) => {
+  return {
+    user
+  }
+}
+
+export default connect(mapStateToProps, { getUserInfo })(Layout)

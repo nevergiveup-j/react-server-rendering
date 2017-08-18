@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class Index extends Component {
+class Index extends Component {
   constructor(props) {
     super(props);
 
@@ -8,10 +9,24 @@ export default class Index extends Component {
     }
   }
   render() {
+    const { user } = this.props
+    const { isLogin, userInfo } = user
+    console.log(userInfo)
     return (
       <div>
-        home content222
+        <div>
+          User Name: {userInfo.userName}
+        </div> 
+        home content333
       </div>
     );
   }
 }
+
+const mapStateToProps = ({ user }) => {
+  return {
+    user
+  }
+}
+
+export default connect(mapStateToProps)(Index)
