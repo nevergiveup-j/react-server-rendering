@@ -17,8 +17,13 @@ if(isDebug) {
     const webpackDevMiddleware = require('webpack-dev-middleware')
     const webpackHotMiddleware = require('webpack-hot-middleware')
     const webpackConfig = require('../build/webpack.dev.config')
-
+    const testRoutes = require('./test/routes').default
+    
     const compiler = webpack(webpackConfig)
+
+    testRoutes(app)
+
+    console.log(testRoutes)
 
     app.use(webpackDevMiddleware(compiler, {
         publicPath: webpackConfig.output.publicPath,
